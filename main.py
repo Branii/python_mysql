@@ -43,37 +43,36 @@ def selectUsers() : #Accepts 0 parameter
     cursor.close()
     connection.close() # end of select data function | will select all data when called  
 
-def updateUser(username,email,userid) : #Accepts 3 parameter
+def updateUser(username,email,uid) : #Accepts 3 parameter
     cursor = connection.cursor()
     query = "UPDATE users SET username = %s, email = %s  WHERE uid = %s"
-    params = (username,email,userid)
+    params = (username,email,uid)
     cursor.execute(query,params)
     connection.commit()
     print("User updated successfully")
     cursor.close()
     connection.close() # end of update data function | will update data with params when called
-    
-def deleteUser(userid) : #Accepts 1 parameter
+     
+def deleteUser(uid) : #Accepts 1 parameter
     cursor = connection.cursor()
     query = "DELETE FROM users WHERE uid = %s"
-    params = (userid)
+    params = (uid)
     cursor.execute(query,params)
     connection.commit()
     print("User deleted successfully")
     cursor.close()
     connection.close() # end of delete data function | will delete data with params when called
     
-    
 #basically run or test all your functions here by calling them 
 try:
     connection = mysql.connector.connect(host = config['host'], database = config['database'], user = config['user'], passwd = config['password'])
     if connection.is_connected:
       #addnewuser("username","email","password");  
-      #selectUsers()
+      deleteUser(9)
+      selectUsers()
       #updateUser("someone","example@gmail.com",4) 
       #createDatabase("test_database") 
-      createTable("test_table")
-        
+      #createTable("test_table")
         
 except Error as err:
     print("Some error occured",err)
