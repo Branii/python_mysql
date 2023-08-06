@@ -70,9 +70,9 @@ try:
     if connection.is_connected:
       #addnewuser("username","email","password");  
       #selectUsers()
-      #updateUser("black","black@gmail.com",4) 
-      #createDatabase("somename") 
-      createTable("tablename")
+      #updateUser("someone","example@gmail.com",4) 
+      #createDatabase("test_database") 
+      createTable("test_table")
         
         
 except Error as err:
